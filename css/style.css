@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/*Imagenes metidas con css mediante su id*/
+
+#explore{
+    background-image: url("https://media.istockphoto.com/id/1272253926/es/foto/puente-de-madera-en-medio-del-bosque.jpg?s=612x612&w=0&k=20&c=eQOkQFc_LixRCEeqlqPCkXM9guY0dz2Vhb6gPbNwICY="); 
+}
+#beach{
+    background-image: url("https://t3.ftcdn.net/jpg/03/82/24/44/360_F_382244401_FNIivSDbE7ojw5sT70WYVgmFsw2R7DHD.jpg")
+}
+#mountain{
+    background-image: url("https://www.travelmanagers.com.au/wp-content/uploads/2012/08/AdobeStock_254529936_Railroad-to-Denali-National-Park-Alaska_750x500.jpg"); 
+}
+#city{
+    background-image: url("https://images.pexels.com/photos/1563256/pexels-photo-1563256.jpeg?cs=srgb&dl=pexels-ricky-esquivel-1563256.jpg&fm=jpg"); 
+}
+#forest{
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/82/Into_the_wild_forest_at_Patriata%2C_Pakistan.jpg"); 
+}
+
+/*Background*/
+
+html {
+    --s: 50px;
+    --c: #191b22;
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+    background: 
+        radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s), 
+        radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s), 
+        radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s), 
+        radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s), 
+        repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s), 
+        radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+    background-attachment: fixed;
+    }
+
+/*Empezamos a dar estilos*/
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    cursor: pointer;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    flex: 0.5;
+    margin: 10px;
+    transition: all 0.2 ease-in;
+    position: relative;
+}
+
+.panel h1{
+    font-size: 30px;
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active{
+    flex:5;
+}
+
+.panel.active h1{
+    opacity: 1;
+    transition: opacity 0.1s ease-in 0.2s;
+}
+
+@media (max-width: 480px){
+    .container{
+        width: 100vw;
+        transition: opacity 0.3s ease-in 0.4s;
+    }
+
+    /*Para que sea responsive y no se vean los paneles 4 y 5,
+    solo en mayor tamaño del dispositivo*/
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
+
+
